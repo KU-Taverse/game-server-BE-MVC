@@ -3,10 +3,8 @@ package com.kutaverse.demo.config;
 
 import com.kutaverse.demo.domain.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -16,16 +14,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Configuration
-@EnableWebSocket
-@RequiredArgsConstructor
-public class WebSocketConfig implements WebSocketConfigurer {
+public class MapConfig  {
 
 
-    private final WebSocketHandler webSocketHandler;
-
-    @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(webSocketHandler, "/map").setAllowedOrigins("*");
+    @Bean
+    public Map<String, User> map(){
+        return new ConcurrentHashMap<>();
     }
-
 }
