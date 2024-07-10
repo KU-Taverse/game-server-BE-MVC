@@ -22,4 +22,8 @@ public class UserRepository {
     public List<User> findAll(){
         return map.values().stream().toList();
     }
+
+    public String remove(String userId){
+        return map.remove(userId).getUserId();
+    }
 }

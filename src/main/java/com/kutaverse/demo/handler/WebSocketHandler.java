@@ -1,6 +1,7 @@
 package com.kutaverse.demo.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kutaverse.demo.domain.MapRequestType;
 import com.kutaverse.demo.domain.User;
 import com.kutaverse.demo.dto.UserRequestDto;
 import com.kutaverse.demo.dto.UserResponseDto;
@@ -41,8 +42,14 @@ public class WebSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         ObjectMapper objectMapper=new ObjectMapper();
         UserRequestDto userRequestDto = objectMapper.readValue(message.asBytes(), UserRequestDto.class);
-        User entity = userRequestDto.toEntity();
-        userService.save(entity);
+        if(userRequestDto.getMapRequestType()== MapRequestType.SAVE){
+            User entity = userRequestDto.toEntity();
+            userService.save(entity);
+        }
+        else if(userRequestDto.getMapRequestType()==MapRequestType.DELETE){
+            userService.delete(userRequestDto.getUserId());
+        }
+
         /*String id = session.getId();  //메시지를 보낸 아이디
 
         CLIENTS.entrySet().forEach( arg->{
