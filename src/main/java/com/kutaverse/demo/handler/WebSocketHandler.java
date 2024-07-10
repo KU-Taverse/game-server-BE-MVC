@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kutaverse.demo.domain.MapRequestType;
 import com.kutaverse.demo.domain.User;
 import com.kutaverse.demo.dto.UserRequestDto;
-import com.kutaverse.demo.dto.UserResponseDto;
-import com.kutaverse.demo.repository.UserRepository;
-import com.kutaverse.demo.service.UserService;
+import com.kutaverse.demo.service.UserCashService;
 import com.kutaverse.demo.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -19,14 +17,13 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 public class WebSocketHandler extends TextWebSocketHandler {
 
     private static final ConcurrentHashMap<String, WebSocketSession> CLIENTS = new ConcurrentHashMap<>();
-    private final UserService userService;
+    private final UserCashService userService;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {

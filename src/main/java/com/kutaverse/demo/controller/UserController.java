@@ -1,6 +1,6 @@
 package com.kutaverse.demo.controller;
 
-import com.kutaverse.demo.service.UserService;
+import com.kutaverse.demo.service.UserCashService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserCashService userCashService;
 
     /**
      * 맵 유저 삭제
@@ -21,6 +21,6 @@ public class UserController {
      */
     @DeleteMapping("{userId}")
     public String deleteUser(@PathVariable(value = "userId") String userId) {
-        return userService.delete(userId);
+        return userCashService.delete(userId);
     }
 }
