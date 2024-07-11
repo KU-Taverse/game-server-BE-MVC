@@ -34,7 +34,7 @@ public class UserRequestDto {
                 .rotationYaw(rotationYaw)
                 .rotationRoll(rotationRoll)
                 .velocityX(velocityX)
-                .velocityY(velocityZ)
+                .velocityY(velocityY)
                 .velocityZ(velocityZ)
                 .status(status)
                 .build();
