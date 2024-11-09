@@ -23,6 +23,8 @@ import java.util.Objects;
 public class User {
 
     @Id
+    private Long id;
+
     private String userId;
 
     private Double positionX;
@@ -38,6 +40,10 @@ public class User {
     private Double rotationRoll;
 
     private Status status;
+
+    private int aurora; //오로라
+
+    private int title; //칭호
 
     private Double velocityX;
 

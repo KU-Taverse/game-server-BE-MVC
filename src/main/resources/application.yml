@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3307/mvc?autoReconnect=true&allowMultiQueries=true&validationInterval=60000&useSSL=false&allowPublicKeyRetrieval=true&jdbcCompliantTruncation=false
+    url: jdbc:mysql://mysql:3306/webflux?autoReconnect=true&allowMultiQueries=true&validationInterval=60000&useSSL=false&allowPublicKeyRetrieval=true&jdbcCompliantTruncation=false
     username: root
-    password: simple
+    password: 12345678
   jpa:
     #database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: true
