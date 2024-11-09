@@ -23,6 +23,9 @@ public class UserRequestDto {
     private Double velocityY;
     private Double velocityZ;
     private Status status;
+    private int aurora; //오로라
+    private int title; //칭호
+
 
     public User toEntity(){
         return User.builder()
@@ -37,6 +40,8 @@ public class UserRequestDto {
                 .velocityY(velocityY)
                 .velocityZ(velocityZ)
                 .status(status)
+                .aurora(aurora)
+                .title(title)
                 .build();
     }
 }

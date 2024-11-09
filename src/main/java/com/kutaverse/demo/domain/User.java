@@ -20,6 +20,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @Table(name = "map_user")
 @Entity
+@Builder
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -57,7 +59,7 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime localDateTime;
 
-    @Builder
+
     public User(String userId, Double positionX, Double positionY, Double positionZ,
                 Double rotationPitch, Double rotationYaw, Double rotationRoll,
                 Double velocityX, Double velocityY, Double velocityZ, Status status) {
