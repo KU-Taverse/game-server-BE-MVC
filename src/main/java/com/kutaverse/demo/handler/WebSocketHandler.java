@@ -67,7 +67,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         String response = JsonUtil.userListToJson(userList);
         CLIENTS.entrySet().forEach(arg -> {
             try {
-                arg.getValue().sendMessage(new TextMessage(response));
+                arg.getValue().sendMessage(new TextMessage("{"+response+"}"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
