@@ -61,7 +61,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         });*/
     }
 
-    @Scheduled(fixedDelay = 16)
+    @Scheduled(fixedDelay = 33)
     private void boardCastMessage(){
         List<User> userList = userService.findAll();
         String response = JsonUtil.userListToJson(userList);
